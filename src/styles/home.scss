@@ -197,14 +197,14 @@ $breakpoints: (
     &__container {
       &__swiper {
         &__slider {
-          max-width: 450px;
+          max-width: 350px;
           max-height: 250px;
           &__img {
-            max-width: 300px;
-            min-height: 150px;
+            max-width: 250px;
+            min-height: 80px;
           }
           &__content {
-            max-width: 300px;
+            max-width: 250px;
           }
         }
       }
