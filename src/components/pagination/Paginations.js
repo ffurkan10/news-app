@@ -29,7 +29,7 @@ const Paginations = ({
             key={pageNumber}
             onClick={() => handlePaginationClick(pageNumber)}
             className={currentPage === pageNumber ? "selected" : ""}
-            style={{ padding: "5px" }}
+            style={{ padding: "5px", width: "30px" }}
           >
             {pageNumber}
           </button>
