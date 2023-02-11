@@ -14,15 +14,16 @@ import Footer from "./components/footer/Footer";
 function App() {
   const [news, setNews] = useState([]);
   const [products, setProducts] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("top");
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=tr&category=${selectedCategory}&apiKey=31eeec8f8f4948178452985145b73ad3`
+        `https://newsdata.io/api/1/news?apikey=pub_1696371878d1ebbba7429374cf7e4591e3f22&language=tr&category=${selectedCategory}`
       );
-      setProducts(response.data.articles.slice(0, 3));
+      console.log(response.data);
+      setProducts(response.data.results.slice(0, 3));
     };
     fetchData();
   }, [selectedCategory]);
@@ -30,9 +31,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `https://newsapi.org/v2/top-headlines?country=tr&category=${selectedCategory}&apiKey=31eeec8f8f4948178452985145b73ad3`
+        `https://newsdata.io/api/1/news?apikey=pub_1696371878d1ebbba7429374cf7e4591e3f22&language=tr&category=${selectedCategory}`
       );
-      setNews(response.data.articles.slice(3, 21));
+      setNews(response.data.results.slice(0, 20));
     };
     fetchData();
   }, [selectedCategory]);
