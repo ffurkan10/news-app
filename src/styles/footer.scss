@@ -1,0 +1,56 @@
+$breakpoints: (
+  "xs": 36em,
+  "sm": 48em,
+  "md": 62em,
+  "lg": 75em,
+  "xl": 87.5em,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+.footer {
+  width: 100%;
+  background-color: #181b27;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #98b4d4;
+  padding: 20px;
+  &__contact {
+    width: 50%;
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        display: flex;
+        align-items: center;
+        p {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .footer {
+    &__contact {
+      ul {
+        flex-direction: column;
+        li {
+          margin-block: 10px;
+        }
+      }
+    }
+  }
+}
