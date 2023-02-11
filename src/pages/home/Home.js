@@ -14,7 +14,9 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Home = ({ filteredNews, setSelectedCategory, products }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 5;
+
+  console.log(products);
 
   const lastItemIndex = currentPage * itemsPerPage;
   const firstItemIndex = lastItemIndex - itemsPerPage;
@@ -45,17 +47,27 @@ const Home = ({ filteredNews, setSelectedCategory, products }) => {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              {products?.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <div className="home__container__swiper__slider__img">
-                    <img src={image.urlToImage} alt="" />
-                  </div>
-                  <div className="home__container__swiper__slider__content">
-                    <h3> {image.title} </h3>
-                    <p>{image.description}</p>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {products?.map((image, index) => {
+                console.log(image);
+                return (
+                  <SwiperSlide key={index}>
+                    <div className="home__container__swiper__slider__img">
+                      <img
+                        src={
+                          image.image_url === null
+                            ? "https://www.messagetech.com/wp-content/themes/ml_mti/images/no-image.jpg"
+                            : image.image_url
+                        }
+                        alt=""
+                      />
+                    </div>
+                    <div className="home__container__swiper__slider__content">
+                      <h3> {image.title} </h3>
+                      <p>{image.description}</p>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </section>
           <section className="home__container__news">
