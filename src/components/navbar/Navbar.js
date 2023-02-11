@@ -12,25 +12,25 @@ const Navbar = ({ setSelectedCategory }) => {
       <div className="navbar__container">
         <ul>
           <li>
-            <button onClick={() => setSelectedCategory("")}>
+            <button onClick={() => setSelectedCategory("top")}>
               <span
-                onClick={() => handleSelected("")}
+                onClick={() => handleSelected("top")}
                 style={
-                  selected === ""
+                  selected === "top"
                     ? { color: "black", backgroundColor: "white" }
                     : {}
                 }
               >
-                All
+                Top
               </span>
             </button>
           </li>
           <li>
-            <button onClick={() => setSelectedCategory("Business")}>
+            <button onClick={() => setSelectedCategory("business")}>
               <span
-                onClick={() => handleSelected("Business")}
+                onClick={() => handleSelected("business")}
                 style={
-                  selected === "Business"
+                  selected === "business"
                     ? { color: "black", backgroundColor: "white" }
                     : {}
                 }
@@ -40,11 +40,11 @@ const Navbar = ({ setSelectedCategory }) => {
             </button>
           </li>
           <li>
-            <button onClick={() => setSelectedCategory("Entertainment")}>
+            <button onClick={() => setSelectedCategory("entertainment")}>
               <span
-                onClick={() => handleSelected("Entertainment")}
+                onClick={() => handleSelected("entertainment")}
                 style={
-                  selected === "Entertainment"
+                  selected === "entertainment"
                     ? {
                         color: "black",
                         backgroundColor: "white",
@@ -56,26 +56,27 @@ const Navbar = ({ setSelectedCategory }) => {
               </span>
             </button>
           </li>
+
           <li>
-            <button onClick={() => setSelectedCategory("General")}>
+            <button onClick={() => setSelectedCategory("politics")}>
               <span
-                onClick={() => handleSelected("General")}
+                onClick={() => handleSelected("politics")}
                 style={
-                  selected === "General"
+                  selected === "politics"
                     ? { color: "black", backgroundColor: "white" }
                     : {}
                 }
               >
-                General
+                Politics
               </span>
             </button>
           </li>
           <li>
-            <button onClick={() => setSelectedCategory("Health")}>
+            <button onClick={() => setSelectedCategory("health")}>
               <span
-                onClick={() => handleSelected("Health")}
+                onClick={() => handleSelected("health")}
                 style={
-                  selected === "Health"
+                  selected === "health"
                     ? { color: "black", backgroundColor: "white" }
                     : {}
                 }
@@ -85,25 +86,11 @@ const Navbar = ({ setSelectedCategory }) => {
             </button>
           </li>
           <li>
-            <button onClick={() => setSelectedCategory("Science")}>
+            <button onClick={() => setSelectedCategory("sports")}>
               <span
-                onClick={() => handleSelected("Science")}
+                onClick={() => handleSelected("sports")}
                 style={
-                  selected === "Science"
-                    ? { color: "black", backgroundColor: "white" }
-                    : {}
-                }
-              >
-                Science
-              </span>
-            </button>
-          </li>
-          <li>
-            <button onClick={() => setSelectedCategory("Sports")}>
-              <span
-                onClick={() => handleSelected("Sports")}
-                style={
-                  selected === "Sports"
+                  selected === "sports"
                     ? { color: "black", backgroundColor: "white" }
                     : {}
                 }
@@ -113,11 +100,11 @@ const Navbar = ({ setSelectedCategory }) => {
             </button>
           </li>
           <li>
-            <button onClick={() => setSelectedCategory("Technology")}>
+            <button onClick={() => setSelectedCategory("technology")}>
               <span
-                onClick={() => handleSelected("Technology")}
+                onClick={() => handleSelected("technology")}
                 style={
-                  selected === "Technology"
+                  selected === "technology"
                     ? { color: "black", backgroundColor: "white" }
                     : {}
                 }
