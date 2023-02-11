@@ -5,7 +5,14 @@ const NewsList = ({ news }) => {
   return (
     <li className="home__container__news__ul__li">
       <div className="home__container__news__ul__li__img">
-        <img src={news.urlToImage} alt="" />
+        <img
+          src={
+            news.image_url === null
+              ? "https://www.messagetech.com/wp-content/themes/ml_mti/images/no-image.jpg"
+              : news.image_url
+          }
+          alt=""
+        />
       </div>
       <div className="home__container__news__ul__li__description">
         <h3>{news.title}</h3>
