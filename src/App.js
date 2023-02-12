@@ -16,24 +16,31 @@ function App() {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("top");
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     const fetchData = async () => {
       const response = await axios.get(
         `https://newsdata.io/api/1/news?apikey=pub_1696371878d1ebbba7429374cf7e4591e3f22&language=tr&category=${selectedCategory}`
       );
       console.log(response.data);
       setProducts(response.data.results.slice(0, 3));
+      setLoading(false);
     };
     fetchData();
   }, [selectedCategory]);
 
   useEffect(() => {
+    setLoading(true);
+
     const fetchData = async () => {
       const response = await axios.get(
         `https://newsdata.io/api/1/news?apikey=pub_1696371878d1ebbba7429374cf7e4591e3f22&language=tr&category=${selectedCategory}`
       );
       setNews(response.data.results.slice(0, 20));
+      setLoading(false);
     };
     fetchData();
   }, [selectedCategory]);
@@ -57,6 +64,7 @@ function App() {
               path="/"
               element={
                 <Home
+                  loading={loading}
                   filteredNews={filteredNews}
                   products={products}
                   selectedCategory={selectedCategory}
